@@ -10,6 +10,11 @@ import { useEffect, useState } from "react";
 // };
 
 export default function Home() {
+  const [numberOfResults, setNumberOfResults] = useState<number>(5);
+  const [questionType, setQuestionType] = useState<string>("anything"); //anything
+
+  const [display, setDisplay] = useState<boolean>(false);
+
   const [question, setQuestion] = useState<string | null>(null);
 
   useEffect(() => {
@@ -20,11 +25,7 @@ export default function Home() {
       try {
         const response = await ai.models.generateContent({
           model: "gemini-2.0-flash", //gemma-3-27b-it
-          contents:
-            "I have a game that the user needs to order 5 results from least to greatest. \
-    The topics can very from music, video games, culture, geography, animals, etc. Only return \
-    to me a title, a random ordered array of the top 5 results for any random topic you choose and it has to have the array key of random_list, \
-    and the array in the correct order starting with the greatest in the 0 index and it has to have the array key is ordered_list.",
+          contents: `I have a game that the user needs to order ${numberOfResults} results from least to greatest. The topic / question type is ${questionType}. Only return the title, a random ordered array of the top ${numberOfResults} results for the topic / question type you choose and it has to have the array key of random_list, and an array in the correct order starting with the greatest in index 0 and it has to have the array key is ordered_list. Finally do not reviel the correct order in the response. The response should be in JSON format and nothing else.`,
           config: {
             responseMimeType: "application/json",
           },
@@ -49,14 +50,23 @@ export default function Home() {
         const parsedQuestion = JSON.parse(question);
         return (
           <div>
-            <h1>{parsedQuestion.title}</h1>
+            <h1 className="font-bold">{parsedQuestion.title}</h1>
             <ul>
               {parsedQuestion.random_list.map((item: string, index: number) => (
-                <li key={index}>{item}</li>
+                <li key={index}>
+                  {index + 1}: {item}
+                </li>
               ))}
             </ul>
             <h2>Correct Order:</h2>
-            <ul>
+            <button
+              onClick={() => {
+                setDisplay(!display);
+              }}
+            >
+              Show
+            </button>
+            <ul className={display ? "" : "hidden"}>
               {parsedQuestion.ordered_list.map(
                 (item: string, index: number) => (
                   <li key={index}>
