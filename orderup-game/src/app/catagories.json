@@ -1,0 +1,100 @@
+{
+  "categories": [
+    {
+      "name": "Anything",
+      "id": 1
+    },
+    {
+      "name": "History",
+      "id": 2
+    },
+    {
+      "name": "Geography",
+      "id": 3
+    },
+    {
+      "name": "Science",
+      "id": 4
+    },
+    {
+      "name": "Math",
+      "id": 5
+    },
+    {
+      "name": "Literature",
+      "id": 6
+    },
+    {
+      "name": "Art",
+      "id": 7
+    },
+    {
+      "name": "Music",
+      "id": 8
+    },
+    {
+      "name": "Sports",
+      "id": 9
+    },
+    {
+      "name": "Technology",
+      "id": 10
+    },
+    {
+      "name": "Food",
+      "id": 11
+    },
+    {
+      "name": "Movies",
+      "id": 12
+    },
+    {
+      "name": "Television",
+      "id": 13
+    },
+    {
+      "name": "Politics",
+      "id": 14
+    },
+    {
+      "name": "Philosophy",
+      "id": 15
+    },
+    {
+      "name": "Religion",
+      "id": 16
+    },
+    {
+      "name": "Health",
+      "id": 17
+    },
+    {
+      "name": "Environment",
+      "id": 18
+    },
+    {
+      "name": "Business",
+      "id": 19
+    },
+    {
+      "name": "Economics",
+      "id": 20
+    },
+    {
+      "name": "Psychology",
+      "id": 21
+    },
+    {
+      "name": "Sociology",
+      "id": 22
+    },
+    {
+      "name": "Languages",
+      "id": 23
+    },
+    {
+      "name": "Mythology",
+      "id": 24
+    }
+  ]
+}
