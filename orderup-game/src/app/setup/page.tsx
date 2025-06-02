@@ -52,11 +52,11 @@ export default function Setup({ setGame, gameData, setGameData }: SetupProps) {
 
   const updateSetSize = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
-    if (value > 10) {
-      alert("The maximum number of results is 10");
+    if (value > 15) {
+      alert("The maximum number of results is 15");
       return;
-    } else if (value < 1) {
-      alert("The minimum number of results is 1");
+    } else if (value < 5) {
+      alert("The minimum number of results is 5");
       return;
     } else if (isNaN(value)) {
       alert("Please enter a valid number");
@@ -133,18 +133,13 @@ export default function Setup({ setGame, gameData, setGameData }: SetupProps) {
               <option value="hard">Hard</option>
               <option value="advance">Advance</option>
             </select>
-            {/* <input
-              type=""
-              className="m-2 px-2 w-14 bg-white border-1 rounded-sm"
-              value={gameData.listSize}
-              onChange={updateSetSize}
-            /> */}
           </div>
           <button
             type="button"
             onClick={() => {
               setGame(true);
             }}
+            className="cursor-pointer"
           >
             Begin
           </button>
